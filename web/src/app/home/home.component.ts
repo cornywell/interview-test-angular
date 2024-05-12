@@ -7,6 +7,7 @@ interface Student {
   lastName: string;
   email: string;
   major: string;
+  averageGrade: number;
 }
 @Component({
   selector: 'app-home',
