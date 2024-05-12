@@ -1,14 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 
-interface Student {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  major: string;
-  averageGrade: number;
-}
+import { Student } from '../models/student.model';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
