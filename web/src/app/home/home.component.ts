@@ -36,7 +36,12 @@ export class HomeComponent implements OnInit {
   }
 
   deleteStudent(email: string): void {
+    const student = this.students.find((student) => student.email === email);
+    const studentName = `${student?.firstName} ${student?.lastName}`
     const url = `http://localhost:5000/Students/${email}`;
+    if (!confirm(`Are you sure you want to delete ${studentName}?`)) {
+      return;
+    }
     this.http.delete(url).subscribe({
       next: () => {
         this.router.navigate(['/']);
