@@ -37,5 +37,12 @@ namespace StudentApi.Controllers
 
             return reponse.Students;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddStudent([FromBody] AddStudentRequest request)
+        {
+            var response = await Mediator.Send(request);
+            return Ok(response);
+        }
     }
 }
