@@ -59,4 +59,4 @@ Extras for if you have time:
 
 - [x] Implement the `Delete` method of `IStudentService`
 - [x] Add delete endpoint to the API
-- [ ] Add delete functionality to the frontend
+- [x] Add delete functionality to the frontend
