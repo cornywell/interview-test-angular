@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label>First Name:</label>
+    <input [(ngModel)]="student.firstName" name="firstName" required />
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input [(ngModel)]="student.lastName" name="lastName" required />
+  </div>
+  <div>
+    <label>Email:</label>
+    <input [(ngModel)]="student.email" name="email" required />
+  </div>
+  <div>
+    <label>Major:</label>
+    <input [(ngModel)]="student.major" name="major" required />
+  </div>
+  <div>
+    <label>Average Grade:</label>
+    <input [(ngModel)]="student.averageGrade" name="averageGrade" required />
+  </div>
+  <button type="submit">Create Student</button>
+</form>
