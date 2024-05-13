@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { Student } from '../models/student.model';
 
@@ -18,7 +19,7 @@ export class CreateComponent {
     averageGrade: 0,
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
     const studentWithoutId = {
@@ -34,6 +35,7 @@ export class CreateComponent {
     this.http.post('http://localhost:5000/students', data).subscribe({
       next: (result) => {
         console.log(result);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         console.error(error);
