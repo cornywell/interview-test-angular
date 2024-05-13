@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Student } from '../models/student.model';
 
@@ -11,7 +12,7 @@ import { Student } from '../models/student.model';
 export class HomeComponent implements OnInit {
   public students: Student[] = [];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
     http.get<Student[]>(baseUrl + 'students').subscribe({
       next: (result) => {
         this.students = result;
@@ -33,4 +34,17 @@ export class HomeComponent implements OnInit {
       return 'table-danger';
     }
   }
+
+  deleteStudent(email: string): void {
+    const url = `http://localhost:5000/Students/${email}`;
+    this.http.delete(url).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error('There was an error deleting the student:', error);
+      },
+    });
+  }
+
 }
