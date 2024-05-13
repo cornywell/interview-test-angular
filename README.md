@@ -23,7 +23,7 @@ Please enter/replace your details below.
 | Name | Kim Cornwell |
 | Date | 2024-05-13 |
 | Start Time | 09:30+12:00 |
-| Finish Time | ? |
+| Finish Time | 17:05+12:00 |
 
 ## Requirements
 
