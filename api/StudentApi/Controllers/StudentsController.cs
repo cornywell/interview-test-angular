@@ -1,4 +1,5 @@
-﻿using StudentApi.Mediatr.Students;
+﻿using System;
+using StudentApi.Mediatr.Students;
 using StudentApi.Models.Students;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -41,8 +42,24 @@ namespace StudentApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddStudent([FromBody] AddStudentRequest request)
         {
-            var response = await Mediator.Send(request);
-            return Ok(response);
+            try
+            {
+                var response = await Mediator.Send(request);
+                if (response.Success)
+                {
+                    return StatusCode(201, new { message = response.Message });
+                }
+                else
+                {
+                    return BadRequest(new { message = response.Message });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to add student.");
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }
