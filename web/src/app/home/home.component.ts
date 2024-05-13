@@ -44,7 +44,8 @@ export class HomeComponent implements OnInit {
     }
     this.http.delete(url).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        const updatedStudents = this.students.filter(student => student.email !== email);
+        this.students = updatedStudents;
       },
       error: (error) => {
         console.error('There was an error deleting the student:', error);
