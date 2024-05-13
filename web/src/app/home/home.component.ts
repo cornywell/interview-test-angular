@@ -23,4 +23,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  getBootstrapRowStyle(grade: number): string {
+    if (grade >= 80) {
+      return 'table-success';
+    } else if (grade >= 50) {
+      return 'table-warning';
+    } else {
+      return 'table-danger';
+    }
+  }
 }
