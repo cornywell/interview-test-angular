@@ -9,6 +9,6 @@ namespace StudentApi.Services
 
         bool AddStudent(Student student);
 
-        bool DeleteStudent(Student student);
+        bool DeleteStudent(string email);
     }
 }

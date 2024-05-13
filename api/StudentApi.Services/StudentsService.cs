@@ -59,10 +59,16 @@ namespace StudentApi.Services
         /// </summary>
         /// <param name="student"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public bool DeleteStudent(Student student)
+        public bool DeleteStudent(string email)
         {
-            throw new NotImplementedException();
+            var student = students.FirstOrDefault(s => s.Email == email);
+            if (student == null)
+            {
+                return false;
+            }
+
+            students.Remove(student);
+            return true;
         }
 
         /// <summary>

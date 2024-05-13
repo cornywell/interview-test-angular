@@ -61,5 +61,27 @@ namespace StudentApi.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpDelete("{email}")]
+        public async Task<IActionResult> DeleteStudent(string email)
+        {
+            try
+            {
+                var response = await Mediator.Send(new DeleteStudentRequest { Email = email });
+                if (response.Success)
+                {
+                    return NoContent();
+                }
+                else
+                {
+                    return NotFound(new { message = response.Message });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to delete student.");
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }
