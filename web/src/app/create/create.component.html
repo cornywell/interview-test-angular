@@ -1,23 +1,23 @@
 <form (ngSubmit)="onSubmit()">
-  <div>
-    <label>First Name:</label>
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name:</label>
     <input [(ngModel)]="student.firstName" name="firstName" required />
   </div>
-  <div>
-    <label>Last Name:</label>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name:</label>
     <input [(ngModel)]="student.lastName" name="lastName" required />
   </div>
-  <div>
-    <label>Email:</label>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
     <input [(ngModel)]="student.email" name="email" required />
   </div>
-  <div>
-    <label>Major:</label>
+  <div class="mb-3">
+    <label for="major" class="form-label">Major:</label>
     <input [(ngModel)]="student.major" name="major" required />
   </div>
-  <div>
-    <label>Average Grade:</label>
+  <div class="mb-3">
+    <label for="averageGrade" class="form-label">Average Grade:</label>
     <input [(ngModel)]="student.averageGrade" name="averageGrade" required />
   </div>
-  <button type="submit">Create Student</button>
+  <button type="submit" class="btn btn-primary">Create Student</button>
 </form>
